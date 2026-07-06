@@ -11,7 +11,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Configuration.SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("Secrets.json");
 
-var mongoClient = new MongoClient(builder.Configuration.GetConnectionString("CommBank"));
+var mongoClient = new MongoClient(
+    "mongodb+srv://anushkasingh8519:Anushka19@cluster0.fsr9en3.mongodb.net/?appName=Cluster0"
+);
+
 var mongoDatabase = mongoClient.GetDatabase("CommBank");
 
 IAccountsService accountsService = new AccountsService(mongoDatabase);
